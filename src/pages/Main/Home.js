@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
 
 const Home = () => {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles, tags] = useState([]);
 
   useEffect(() => {
-    fetch("articles.json")
+    fetch("http://localhost:5000/articles")
       .then((res) => res.json())
-      .then((data) => setArticles(data));
+      .then((data) => setArticles(data.data));
   }, []);
   return (
     <div>
